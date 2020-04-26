@@ -1,0 +1,40 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <div class="btn-group pull-right" style="cursor: pointer" appDropDown>
+      <span class="dropdown-toggle">
+        <span class="glyphicon glyphicon-option-vertical pull-right"></span>
+      </span>
+      <ul class="dropdown-menu">
+        <li><a (click)="onAddToShoppingList()">To Shopping List</a></li>
+        <li><a (click)="onEditRecipe()">Edit</a></li>
+        <li><a (click)="onDeleteRecipe()">Delete</a></li>
+      </ul>
+    </div>
+    <b>{{recipe.name}}</b>
+  </div>
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-xs-12">
+        <img [src]="recipe.imagePath" alt="{{recipe.name}}" class="img-responsive center-block"
+             style="max-height: 300px; ">
+      </div>
+    </div>
+  </div>
+  <div class="panel-footer">
+    <div class="row">
+      <div class="col-xs-12">
+        {{recipe.description}}
+      </div>
+    </div>
+    <hr>
+    <div class="row">
+      <div class="col-xs-12">
+        <ul class="list-group">
+          <li class="list-group-item" *ngFor="let ingredient of recipe.ingredients">
+            {{ingredient.name}} <span class="badge">{{ingredient.amount}}.00 $</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
